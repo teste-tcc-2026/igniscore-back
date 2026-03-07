@@ -20,7 +20,7 @@ public class User {
     @Column(name = "password_user", nullable = false)
     private String password;
 
-    @Column(name = "role_user", nullable = true)
+    @Column(name = "role_user")
     private String role;
 
     @Column(name = "fk_id_company")
@@ -48,10 +48,6 @@ public class User {
 
     public Integer getCompany() {
         return company;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public void setName(String name) {
