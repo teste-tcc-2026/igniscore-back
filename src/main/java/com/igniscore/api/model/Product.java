@@ -2,6 +2,8 @@ package com.igniscore.api.model;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "products")
 public class Product {
@@ -19,7 +21,7 @@ public class Product {
     private String type;
 
     @Column(name = "validity_prod")
-    private String validity;
+    private Date validity;
 
     @Column(name = "lot_prod")
     private String lot;
@@ -32,5 +34,59 @@ public class Product {
     private Company company;
 
 
+    public Integer getId() {
+        return id;
+    }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public String getLot() {
+        return lot;
+    }
+
+    public Date getValidity() {
+        return validity;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setValidity(Date validity) {
+        this.validity = validity;
+    }
+
+    public void setLot(String lot) {
+        this.lot = lot;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }
