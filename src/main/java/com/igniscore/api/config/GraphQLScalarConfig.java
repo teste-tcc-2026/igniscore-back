@@ -1,13 +1,17 @@
+package com.igniscore.api.config;
+
 import graphql.scalars.ExtendedScalars;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import graphql.schema.GraphQLScalarType;
+import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
 @Configuration
 public class GraphQLScalarConfig {
 
     @Bean
-    public GraphQLScalarType dateScalar() {
-        return ExtendedScalars.Date;
+    public RuntimeWiringConfigurer runtimeWiringConfigurer() {
+        return wiringBuilder -> wiringBuilder
+                .scalar(ExtendedScalars.Date)
+                .scalar(ExtendedScalars.DateTime);
     }
 }
