@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.igniscore.api.utils.CompanyUtils;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Service
@@ -20,8 +21,9 @@ public class ProductService {
     @Autowired
     private CompanyUtils companyUtils;
 
-    public Product createProduct(String name, String type, Date validity, String lot, Float price, Integer company_id){
-        Company company = companyUtils.existsCompany(company_id);
+    public Product createProduct(String name, String type, LocalDate validity, String lot, Float price, Integer companyId) {
+        Company company = companyUtils.existsCompany(companyId);
+        if (company == null) throw new RuntimeException("Company not found");
 
         Product product = new Product();
         product.setName(name);
@@ -31,8 +33,6 @@ public class ProductService {
         product.setPrice(price);
         product.setCompany(company);
 
-
         return repository.save(product);
-
     }
 }

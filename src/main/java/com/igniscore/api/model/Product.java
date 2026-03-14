@@ -2,6 +2,7 @@ package com.igniscore.api.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,7 +22,7 @@ public class Product {
     private String type;
 
     @Column(name = "validity_prod")
-    private Date validity;
+    private LocalDate validity;
 
     @Column(name = "lot_prod")
     private String lot;
@@ -50,7 +51,7 @@ public class Product {
         return lot;
     }
 
-    public Date getValidity() {
+    public LocalDate getValidity() {
         return validity;
     }
 
@@ -74,7 +75,7 @@ public class Product {
         this.type = type;
     }
 
-    public void setValidity(Date validity) {
+    public void setValidity(LocalDate validity) {
         this.validity = validity;
     }
 

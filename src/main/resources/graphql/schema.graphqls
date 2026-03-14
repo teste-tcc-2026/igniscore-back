@@ -52,7 +52,7 @@ type Mutation {
     createProduct(
         name: String!,
         type: String!,
-        validity: String!,
+        validity: Date!,
         lot: String!,
         price: Float!,
         companyId: ID!
